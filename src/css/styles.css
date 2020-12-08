@@ -1,7 +1,23 @@
 body {
   background-color: lightblue;
+  text-align: center;
 }
 
 input, label, button {
   font-size: 20px;
+}
+
+input {
+  width: 125px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+div {
+  margin: 30px 0px;
 }

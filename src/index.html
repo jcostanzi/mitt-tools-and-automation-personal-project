@@ -8,18 +8,21 @@
   <title>CSS & JS - Versioning</title>
 </head>
 <body>
+
+  <h1>
+    CSS & JS - Versioning
+  </h1>
+
   <div>
-    <div>
-      <label>CSS Current Version:</label>
-      <input type="text" id="css-version" value="css/styles.min.css" readonly>
-    </div>
-
-    <div>
-      <label>JS Current Version:</label>
-      <input type="text" id="js-version" value="js/main.min.js" readonly>
-    </div>
-
-    <button id="get-file-versions">Get CSS & JS files versions</button>
+    <label>CSS Current Version:</label>
+    <input type="text" id="css-version" value="css/styles.min.css" readonly disabled>
   </div>
+
+  <div>
+    <label>JS Current Version:</label>
+    <input type="text" id="js-version" value="js/main.min.js" readonly disabled>
+  </div>
+
+  <button id="refresh-page">Refresh Page</button>
 </body>
 </html>
