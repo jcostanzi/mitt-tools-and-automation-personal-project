@@ -6,6 +6,7 @@ const terser = require('gulp-terser');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const rename = require('gulp-rename');
+const revFormat = require('gulp-rev-format');
 
 function cleanTask(cb) {
   return src('dist/', { read: false, allowEmpty: true })
@@ -25,6 +26,9 @@ function styleTask(cb) {
         dirname: 'css'
     }))
     .pipe(rev())
+    .pipe(revFormat({
+        prefix: '-v-',
+    }))
     .pipe(dest('dist', { sourcemaps: 'maps' }))
     .pipe(rev.manifest({
       base: 'dist'
@@ -40,6 +44,9 @@ function jsTask(cb) {
         dirname: 'js'
     }))
     .pipe(rev())
+    .pipe(revFormat({
+        prefix: '-v-',
+    }))
     .pipe(dest('dist', { sourcemaps: 'maps' }))
     .pipe(rev.manifest({
       base: 'dist',
