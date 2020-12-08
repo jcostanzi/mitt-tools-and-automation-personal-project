@@ -21,3 +21,9 @@ button {
 div {
   margin: 30px 0px;
 }
+
+pre {
+  width: 1200px;
+  overflow: auto;
+  margin: 0 auto;
+}
