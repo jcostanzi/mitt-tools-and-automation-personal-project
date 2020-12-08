@@ -25,9 +25,9 @@ function styleTask(cb) {
         dirname: 'css'
     }))
     .pipe(rev())
-    .pipe(dest('dist/css', { sourcemaps: '../maps/css' }))
+    .pipe(dest('dist', { sourcemaps: 'maps' }))
     .pipe(rev.manifest({
-      base: 'src'
+      base: 'dist'
     }))
     .pipe(dest('src/'));
 }
@@ -40,9 +40,9 @@ function jsTask(cb) {
         dirname: 'js'
     }))
     .pipe(rev())
-    .pipe(dest('dist/js', { sourcemaps: '../maps/js' }))
+    .pipe(dest('dist', { sourcemaps: 'maps' }))
     .pipe(rev.manifest({
-      base: 'src',
+      base: 'dist',
       merge: true
     }))
     .pipe(dest('src/'));
