@@ -5,6 +5,7 @@ const cleanCSS = require('gulp-clean-css');
 const terser = require('gulp-terser');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
+const rename = require('gulp-rename');
 
 function cleanTask(cb) {
   return src('dist/', { read: false, allowEmpty: true })
@@ -20,11 +21,13 @@ function styleTask(cb) {
   return src('src/css/*', { sourcemaps: true})
     .pipe(concat('styles.min.css'))
     .pipe(cleanCSS())
+    .pipe(rename({
+        dirname: 'css'
+    }))
     .pipe(rev())
     .pipe(dest('dist/css', { sourcemaps: '../maps/css' }))
     .pipe(rev.manifest({
-      base: 'src',
-      merge: true
+      base: 'src'
     }))
     .pipe(dest('src/'));
 }
@@ -33,6 +36,9 @@ function jsTask(cb) {
   return src('src/js/*', { sourcemaps: true })
     .pipe(concat('main.min.js'))
     .pipe(terser())
+    .pipe(rename({
+        dirname: 'js'
+    }))
     .pipe(rev())
     .pipe(dest('dist/js', { sourcemaps: '../maps/js' }))
     .pipe(rev.manifest({
